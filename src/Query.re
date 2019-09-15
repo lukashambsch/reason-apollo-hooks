@@ -63,6 +63,7 @@ module Make = (Config: Config) => {
     fetchPolicy: string,
     [@bs.optional]
     errorPolicy: string,
+    pollInterval: int,
   };
 
   [@bs.module "@apollo/react-hooks"]
@@ -87,6 +88,7 @@ module Make = (Config: Config) => {
         ~notifyOnNetworkStatusChange=?,
         ~fetchPolicy=?,
         ~errorPolicy=?,
+        ~pollInterval=?,
         (),
       ) => {
     let jsResult =
@@ -98,6 +100,7 @@ module Make = (Config: Config) => {
           ~notifyOnNetworkStatusChange?,
           ~fetchPolicy=?fetchPolicy->Belt.Option.map(Types.fetchPolicyToJs),
           ~errorPolicy=?errorPolicy->Belt.Option.map(Types.errorPolicyToJs),
+          ~pollInterval?,
           (),
         ),
       );

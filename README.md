@@ -125,6 +125,11 @@ Using `errorPolicy` to change how errors are handled, see [apollo docs](https://
 ```reason
 let (simple, _full) = UserQuery.use(~errorPolicy=All, ());
 ```
+Using `pollInterval` to start polling, see [apollo docs](https://www.apollographql.com/docs/react/api/react-apollo/#optionspollinterval).
+
+```reason
+let (simple, _full) = UserQuery.use(~pollInterval=5000, ());
+```
 
 ## useMutation
 

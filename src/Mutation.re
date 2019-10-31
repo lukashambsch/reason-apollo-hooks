@@ -31,7 +31,6 @@ type controlledResult('a) = {
 
 type controlledVariantResult('a) =
   | Loading
-  | Called
   | NotCalled
   | Data('a)
   | Error(error)
@@ -158,7 +157,6 @@ module Make = (Config: Config) => {
           | {loading: true} => Loading
           | {error: Some(error)} => Error(error)
           | {data: Some(data)} => Data(data)
-          | {called: true} => Called
           | {called: false} => NotCalled
           | _ => NoData
           },
